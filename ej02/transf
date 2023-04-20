@@ -1,0 +1,60 @@
+
+            
+            function Escalado(Sx,Sy,Sz) {
+                var matrizS = new THREE.Matrix4();
+                matriz.set(Sx, 0, 0, 0,
+                            0, Sy, 0, 0,
+                            0, 0, Sz, 0,
+                            0, 0, 0, 1);
+                return matrizS;
+            }    
+       
+
+           
+           
+           function Traslacion(Tx,Ty,Tz) {
+                    var matriz = new THREE.Matrix4();
+                    matriz.set(1, 0, 0, Tx,
+                            0, 1, 0, Ty,
+                            0, 0, 1, Tz,
+                            0, 0, 0, 1);
+                    return matriz;
+            }
+    
+         
+        
+
+            function Rotacion(Rx,Ry,Rz) {   //PARA LOS ANGULOS, EN X Y Z
+
+                var matrizRealx = new THREE.Matrix4();
+                var alpha = Rx;
+                var kos = Math.cos(alpha);
+                var sin = Math.sin(alpha);
+            
+                matrizRealx.set(1,  0, 0, 0,  
+                            0,  kos, -sin, 0, 
+                            0, sin, kos, 0,
+                            0, 0, 0, 1);
+            
+            
+                var matrizRealy = new THREE.Matrix4();
+                var theta = Ry;
+                var kos = Math.cos(theta);
+                var sin = Math.sin(theta);
+            
+                matrizRealy.set(kos,  0, sin, 0, 
+                            0,  1, 0, 0, 
+                            -sin, 0, kos, 0,
+                            0, 0, 0, 1);
+            
+                var matrizRealz = new THREE.Matrix4();
+                var beta = Rz;
+                var kos = Math.cos(beta);
+                var sin = Math.sin(beta);
+            
+                matrizRealz.set(kos,  -sin, 0, 0, 
+                            sin,  kos, 0, 0, 
+                            0, 0, 1, 0,
+                            0, 0, 0, 1);
+                
+            }
